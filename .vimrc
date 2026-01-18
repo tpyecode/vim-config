@@ -45,6 +45,7 @@ nnoremap <leader>c :w<CR>:!cargo check<CR>
 let g:rust_recommended_style = 1
 let g:rustfmt_autosave = 0
 
+let g:NERDTreeWinPos = "right"
 
 let g:coc_diagnostic_virtual_text = 0
 let g:ale_virtualtext = 0
