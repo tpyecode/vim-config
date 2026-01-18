@@ -22,6 +22,10 @@ autocmd FileType c,cpp setlocal tabstop=4 shiftwidth=4 expandtab
 autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab
 
 
+vnoremap <C-c> :w !xclip -selection clipboard<CR><CR>
+
+
+
 nnoremap <leader>m :w<CR>:!g++ -std=c++17 % -o %:r && ./%:r<CR>
 autocmd BufWritePre *.cpp,*.h,*.hpp,*.cc :silent! execute '!clang-format -i %'
 autocmd BufNewFile,BufRead *.cpp,*.hpp,*.cc setlocal filetype=cpp
