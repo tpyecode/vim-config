@@ -67,7 +67,7 @@ augroup MyEnterMapping
 augroup END
 " --- CURSOR SHAPE ---
 let &t_SI = "\e[6 q"   " Insert mode: steady vertical bar
-let &t_EI = "\e[6 q"   " Normal mode: steady block
+let &t_EI = "\e[2 q"   " Normal mode: steady block
 
 " --- CLIPBOARD YANKS ---
 nnoremap Y "+yy
