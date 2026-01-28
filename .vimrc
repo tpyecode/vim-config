@@ -19,7 +19,7 @@ set shellcmdflag=-lc
 autocmd FocusGained,BufEnter,CursorHold * checktime
 " Use 4 spaces for C and C++ files
 autocmd FileType c,cpp setlocal tabstop=4 shiftwidth=4 expandtab
-autocmd FileType java setlocal tabstop=2 shiftwidth=2 expandtab
+autocmd FileType java setlocal tabstop=4 shiftwidth=4 expandtab
 
 
 vnoremap <C-c> :w !wl-copy<CR><CR>
@@ -32,19 +32,6 @@ nnoremap <C-p> :r !xclip -selection clipboard -o<CR><CR>
 nnoremap <leader>m :w<CR>:!g++ -std=c++17 % -o %:r && ./%:r<CR>
 autocmd BufWritePre *.cpp,*.h,*.hpp,*.cc :silent! execute '!clang-format -i %'
 autocmd BufNewFile,BufRead *.cpp,*.hpp,*.cc setlocal filetype=cpp
-
-
-" --- RUST FORMAT ON SAVE ---
-autocmd FileType rust nnoremap <buffer> <leader>f :RustFmt<CR>
-
-" --- RUST COMMANDS ---
-nnoremap <leader>t :w<CR>:!cargo test<CR>
-nnoremap <leader>c :w<CR>:!cargo check<CR>
-
-" --- RUST.VIM SETTINGS ---
-let g:rust_recommended_style = 1
-let g:rustfmt_autosave = 0
-
 
 let g:coc_diagnostic_virtual_text = 0
 let g:ale_virtualtext = 0
@@ -89,8 +76,6 @@ Plug 'landersson/vim-blueberry' " Optional: class/function outline
 Plug 'ghifarit53/tokyonight-vim'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'dense-analysis/ale'
-Plug 'rust-lang/rust.vim'
-Plug 'simrat39/rust-tools.nvim'
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-fugitive'
@@ -121,8 +106,7 @@ autocmd FileType nerdtree let g:lightline = { 'active': { 'left': [ [] ] } }
 
 " --- RUST ANALYZER CONFIG ---
 let g:coc_global_extensions = [
-  \ 'coc-java',
-  \ 'coc-rust-analyzer'
+  \ 'coc-java'
   \ ]
 
 let g:NERDTreeWinPos = "right"
